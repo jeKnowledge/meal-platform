@@ -1,0 +1,7 @@
+<template name="dashboard">
+  <p><input type="button" value="New Meal" id="new-meal-button"/></p>
+
+  {{#if showNewMeal}}
+    {{> newMeal}}
+  {{/if}}
+</template>

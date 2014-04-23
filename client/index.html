@@ -1,15 +1,13 @@
 <body>
-  {{>loginButtons}}
+  {{> loginButtons}}
 
   {{> main}}
 </body>
 
 <template name="main">
-
   {{#if currentUser}}
-    <p>Bem vindo</p>
+     {{> dashboard}}
   {{else}}
     <p>Inscreve-te!</p>
   {{/if}}
-  
 </template>
