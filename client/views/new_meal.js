@@ -1,0 +1,3 @@
+Template.newMeal.rendered = function() {
+
+};
