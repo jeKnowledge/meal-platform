@@ -1,7 +1,7 @@
 <template name="dashboard">
   <h1>Meals</h1>
 
-  <p>Current Meal: {{selectedMealName}} Date: {{selectedMealDate}}</p>
+  <p>Current Meal: {{selectedMealName}}</p>
 
   <select id="meal-select">
     {{#each meals}}
@@ -16,7 +16,8 @@
   <div id="new-meal-div">
     <p>
       <input type="text" placeholder="Meal Name" id="new-meal-name-input"/>
-      <input type="date" placeholder="Meal Date" id="new-meal-name-date-input"/>
+      <input type="date" placeholder="Meal Date" id="new-meal-date-input"/>
+      <input type="time" placeholder="Meal Hour" id="new-meal-hour-input"/>
       <input type="button" value="New Meal" id="new-meal-btn"/>
     </p>
   </div>
