@@ -3,6 +3,11 @@ Template.dashboard.selectedMealName = function() {
   return meal && meal.name;
 };
 
+Template.dashboard.selectedMealDate = function() {
+  var meal = Meals.findOne(Session.get('selectedMeal'));
+  return meal && meal.date;
+};
+
 Template.dashboard.meals = function() {
   return Meals.find({ });
 };
@@ -18,8 +23,8 @@ Template.dashboard.rendered = function() {
 Template.dashboard.events({
   'click #new-meal-btn': function() {
     var newMealName = $('#new-meal-name-input').val();
-
-    Meteor.call('newMeal', newMealName, function(error, result) {
+    var newMealDate = $('#new-meal-name-date-input').val();
+    Meteor.call('newMeal', newMealName, newMealDate, function(error, result) {
       if (error) {
         console.log(error);
       }
