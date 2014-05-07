@@ -1,7 +1,14 @@
 <template name="dashboard">
-  <p><input type="button" value="New Meal" id="new-meal-button"/></p>
+  <h1>Meals</h1>
 
-  {{#if showNewMeal}}
-    {{> newMeal}}
-  {{/if}}
+  {{#each meals}}
+    {{> meal}}
+  {{/each}}
+
+  <div id="new-meal-div">
+    <p>
+      <input type="text" placeholder="Meal Name" id="new-meal-name-input"/>
+      <input type="button" value="New Meal" id="new-meal-btn"/>
+    </p>
+  </div>
 </template>

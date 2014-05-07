@@ -1,3 +1,0 @@
-Template.newMeal.rendered = function() {
-
-};
