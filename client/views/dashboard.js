@@ -7,7 +7,13 @@ Template.dashboard.meals = function() {
   return Meals.find({ });
 };
 
-Template.dashboard.rendered = function() { }
+Template.dashboard.rendered = function() {
+  var allMeals = Meals.find({ }).fetch();
+
+  if (allMeals.lentgh > 0) {
+    Session.set('selectedMeal', allMeals[0]._id)
+  }
+};
 
 Template.dashboard.events({
   'click #new-meal-btn': function() {
