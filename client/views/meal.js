@@ -1,4 +1,15 @@
 Template.meal.name = function() {
-  var meal = Meals.findOne({ _id: this._id });
-  return meal.userId;
+  return Meals.findOne({ _id: this._id }).name;
 };
+
+Template.meal.selected = function() {
+  return Session.equals('selectedMeal', this._id) ? 'selected' : '';
+};
+
+Template.meal.events({
+  'click': function() {
+    console.log('hi');
+
+    Session.set('selectedMeal', this._id);
+  }
+});

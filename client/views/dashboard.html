@@ -1,6 +1,14 @@
 <template name="dashboard">
   <h1>Meals</h1>
 
+  <p>Current Meal: {{selectedMealName}}</p>
+
+  <select id="meal-select">
+    {{#each meals}}
+      <option name="{{name}}">{{name}}</option>
+    {{/each}}
+  </select>
+
   {{#each meals}}
     {{> meal}}
   {{/each}}
