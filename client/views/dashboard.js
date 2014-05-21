@@ -26,7 +26,16 @@ Template.dashboard.events({
   },
 
   'click #add-meal-date-btn': function() {
+    var addDate =$('#add-meal-date-parameter-input').val();
+    var addTime =$('#add-meal-time-input').val();
+    var selectedMealName = $('#meal-select').val();
+    var selectedMeal = Meals.findOne({ name: selectedMealName });
 
+    Meteor.call('addMealDate',selectedMeal._id, addDate, addTime, function(error) {
+     if (error) {
+      console.log(error);
+     }
+    });
   },
 
   'click #add-meal-friend-btn': function() {
@@ -39,7 +48,7 @@ Template.dashboard.events({
     var selectedMealName = $('#meal-select').val();
     var selectedMeal = Meals.findOne({ name: selectedMealName });
 
-    Meteor.call('AddMealPlace',selectedMeal._id, addPlace, function(error) {
+    Meteor.call('addMealPlace',selectedMeal._id, addPlace, 1, function(error) {
      if (error) {
       console.log(error);
      }

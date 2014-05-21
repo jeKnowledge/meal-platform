@@ -1,18 +1,18 @@
 Meteor.methods({
   newMeal: function(mealName) {
-    Meals.insert({ name: mealName, userId: Meteor.user()._id, places : []});
+    Meals.insert({ name: mealName, userId: Meteor.user()._id, places: [], dates: []});
     return Meals.findOne({ name: mealName});
   },
 
-  AddMealDate: function() {
+  addMealDate: function(meal_id,addDate,addTime) {
+    Meals.update(meal_id, { $addToSet:{dates: addDate}});
   },
 
-  AddMealPlace: function(meal_id,addPlace) {
-  	Meals.update(meal_id, { $addToSet:{places: addPlace}});
-  	console.log("JA ENTROU CRL");
+  addMealPlace: function(meal_id,addPlace,addVote) {
+  	Meals.update(meal_id, { $addToSet: {places: { place: addPlace, votes: addVote}}});
   },
 
-  AddMealFriend: function() {
+  addMealFriend: function() {
   } 
 
 });
