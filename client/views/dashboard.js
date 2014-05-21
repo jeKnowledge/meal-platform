@@ -9,7 +9,6 @@ Template.dashboard.meals = function() {
 
 Template.dashboard.rendered = function() {
   var allMeals = Meals.find({ }).fetch();
-
   if (allMeals.lentgh > 0) {
     Session.set('selectedMeal', allMeals[0]._id)
   }
@@ -18,14 +17,32 @@ Template.dashboard.rendered = function() {
 Template.dashboard.events({
   'click #new-meal-btn': function() {
     var newMealName = $('#new-meal-name-input').val();
-    var newMealDate = $('#new-meal-date-input').val();
-    var newMealHour = $('#new-meal-hour-input').val();
-    Meteor.call('newMeal', newMealName, newMealDate, newMealHour, function(error, result) {
+    Meteor.call('newMeal', newMealName, function(error, result) {
       if (error) {
         console.log(error);
       }
-
       Session.set('selectedMeal', result._id)
+    });
+  },
+
+  'click #add-meal-date-btn': function() {
+
+  },
+
+  'click #add-meal-friend-btn': function() {
+
+
+  },
+
+  'click #add-meal-place-btn': function() {
+    var addPlace =$('#add-meal-place-input').val(); 
+    var selectedMealName = $('#meal-select').val();
+    var selectedMeal = Meals.findOne({ name: selectedMealName });
+
+    Meteor.call('AddMealPlace',selectedMeal._id, addPlace, function(error) {
+     if (error) {
+      console.log(error);
+     }
     });
   },
 
