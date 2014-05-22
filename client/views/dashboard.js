@@ -45,7 +45,7 @@ Template.dashboard.events({
 
   'click #add-meal-place-btn': function() {
     var addPlace =$('#add-meal-place-input').val(); 
-    var selectedMealName = $('#meal-select').val();
+    var selectedMealName =$('#meal-select').val();
     var selectedMeal = Meals.findOne({ name: selectedMealName });
 
     Meteor.call('addMealPlace',selectedMeal._id, addPlace, 1, function(error) {

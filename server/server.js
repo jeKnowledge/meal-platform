@@ -9,7 +9,7 @@ Meteor.methods({
   },
 
   addMealPlace: function(meal_id,addPlace,addVote) {
-  	Meals.update(meal_id, { $addToSet: {places: { place: addPlace, votes: addVote}}});
+  	Meals.update(meal_id, { $addToSet:{places: { place: addPlace, votes: addVote}}});
   },
 
   addMealFriend: function() {
