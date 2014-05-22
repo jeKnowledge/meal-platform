@@ -14,9 +14,25 @@
   {{/each}}
 
   <div id="new-meal-div">
-    <p>
-      <input type="text" placeholder="Meal Name" id="new-meal-name-input"/>
-      <input type="button" value="New Meal" id="new-meal-btn"/>
-    </p>
+    
+   <p>
+    <input type="button" value="Add Date and Time Option" id="add-meal-date-btn">
+    <input type="date" id="add-meal-date-parameter-input">
+    <input type="time" id="add-meal-time-input">
+   </p>
+
+   <p>  
+    <input type="button" value="Add Place Option" id="add-meal-place-btn">
+    <input type="text" id="add-meal-place-input">
+   </p>
+
+   <p>
+    <input type="button" value="Add Friend" id="add-meal-friend-btn">
+   </p>
+    
+   <p>
+    <input type="text" placeholder="Meal Name" id="new-meal-name-input"/>
+    <input type="button" value="Create a New Meal" id="new-meal-btn"/>
+   </p>
   </div>
 </template>

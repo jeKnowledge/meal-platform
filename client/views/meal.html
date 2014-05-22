@@ -1,5 +1,17 @@
 <template name="meal">
   <div class="meal-item {{selected}}">
     <p>Name: {{name}}</p>
+    <p>Places: 
+    	{{#each places}}
+    	 {{this.place}}
+    	 {{this.votes}}
+    	{{/each}}
+    </p>	
+ 	<p>Date: 
+ 		{{#each dates}}
+ 		 {{this.date}}
+ 		 {{this.hour}}
+ 		{{/each}} 
+   </p>
   </div>
 </template>
