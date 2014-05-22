@@ -5,7 +5,7 @@ Meteor.methods({
   },
 
   addMealDate: function(meal_id,addDate,addTime) {
-    Meals.update(meal_id, { $addToSet:{dates: addDate}});
+    Meals.update(meal_id, { $addToSet:{dates: { date: addDate, hour: addTime}}});
   },
 
   addMealPlace: function(meal_id,addPlace,addVote) {
